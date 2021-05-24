@@ -1,0 +1,64 @@
+/** Global **/
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:'Poppins', sans-serif;
+    font-size: $font-size-body;
+    font-weight: 400;
+    background-color: $bg-color-body;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	font-weight: 400;
+}
+
+h1 {
+    font-size: $font-size-h1;
+}
+  
+h2 {
+    font-size: $font-size-h2;
+}
+
+h3 {
+    font-size: $font-size-h3;
+}
+
+h4 {
+    font-size: $font-size-h4;
+}
+
+h5 {
+    font-size: $font-size-h5;
+}
+
+h6 {
+    font-size: $font-size-h6;
+}
+
+p {
+    margin-bottom: 0.5em;
+    font-size: $font-size-p;
+    line-height: 3rem;
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color:$bg-color-scrollbar;
+}
+  
+body::-webkit-scrollbar-thumb {
+    background:$bg-color-scrollbar-thumb;
+}
+  

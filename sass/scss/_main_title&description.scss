@@ -1,0 +1,22 @@
+/** MAIN **/
+
+/** Title & Description: Bicicletas, Accesorios e Indumentaria **/
+
+#description {
+    padding: 40px 0;
+    
+    h4 {
+        width: 100%;
+        border-bottom: 1px solid $border-color-description-bottom;
+        margin-bottom: 20px;
+        padding-bottom:10px;
+        text-align: center;
+        font-weight: 600;    
+    }
+
+    p {
+        width: 100%;
+        text-align: center;
+        margin: 0;    
+    }
+}

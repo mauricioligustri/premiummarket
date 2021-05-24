@@ -1,0 +1,182 @@
+/** MAIN **/
+
+/** Banners **/
+
+/** Hover Banner **/
+
+#banner {
+	background-color: $bg-color-hovebanner;
+	padding: 25px 0;
+
+	.big,
+	.small {
+		background-color: $bg-color-hovebanner-bigandsmall;
+		border-radius: 5px;
+		box-shadow: 0 0 2px 0 $boxshadow-hoverbanner-bigandsmall;
+		padding: 5px;
+	}
+
+	@media screen and (max-width: 767px) {
+		.small:first-child {
+			margin-top: 30px;
+		}
+	}
+
+	.small:last-child {
+		margin-top: 30px;
+	}
+
+	.big {
+		height: 100%;
+	}
+
+	.big:hover,
+	.small:hover {
+		box-shadow: 0 0 15px 0 $boxshadow-hoverbanner-bigandsmall-hover;
+		transform: scale(1.05);
+		transition: 0.3s;
+	}
+
+	.big a,
+	.small a {
+		color: $font-color-hoverbanner-bigandsmall-a;
+		text-decoration: none;	
+	}
+
+	.big p {
+		align-items: center;
+		display: flex;
+		flex: row;
+		font-size: $font-size-hoverbanner-big-p;
+		font-weight: 500;
+		height: calc(600px - 530px);
+		justify-content: center;
+		margin: 0;
+	}
+
+	.small p {
+		font-size: $font-size-hoverbanner-small-p;
+		font-weight: 500;
+		margin: 0;
+		padding: 5px 0 0 0;
+		text-align: center;
+	}
+	.img-big,
+	.img-small {
+		width: auto;
+		max-width: 100%;
+	}
+}
+
+
+/** Banner Service **/
+
+#banner_service {
+	display: block;
+	position: relative;
+	text-align: center;
+	width: 100%;
+	
+	img {
+		height: auto;
+		width: 100%;	
+	}
+
+	h1,
+	h3 {
+		color: $font-color-bannerservice-h1andh3;
+		font-weight: 700;
+		letter-spacing: 5px;
+		position: absolute;
+		text-shadow: 3px 3px 5px $textshadow-bannerservice-h1andh3;	
+	}
+
+	h1 {
+		top: 20%;
+		width: 100%;	
+	}
+
+	h3 {
+		top: 50%;
+		padding-top: 10px;
+		width: 100%;	
+    }
+    
+    @media screen and (max-width: 575px) {
+        h1 {
+            font-size: $font-size-bannerservice-mediamax575-h1;
+        }
+
+        h3 {
+            font-size: $font-size-bannerservice-mediamax575-h3;
+        }
+    }
+    
+    @media screen and (min-width:576px) {
+        h1 {
+            font-size: $font-size-bannerservice-mediamin576-h1;
+        }
+
+        h3 {
+            font-size: $font-size-bannerservice-mediamin576-h3;
+        }
+    }
+
+    @media screen and (min-width: 992px) {
+        h1 {
+            font-size: $font-size-bannerservice-mediamin992-h1;
+        }
+            h3 {
+                font-size: $font-size-bannerservice-mediamin576-h3;
+        }
+    }
+}
+
+/** Banner Top: Bicicletas, Accesorios e Indumentaria **/
+
+#banner_top {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 0 10px 0 $boxshadow-bannertop;
+    
+    img {
+        height: auto;
+        width: 100%;
+    }
+
+    h1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        margin: auto;
+        color: $font-color-bannertop-h1;
+        font-weight: 700;
+        letter-spacing: 5px;
+        text-shadow: 3px 3px 5px $boxshadow-bannertop-h1;
+    }
+
+    @media screen and (max-width: 575px) {
+        h1 {
+          font-size: $font-size-bannertop-mediamax575-h1;
+          height: 3rem;
+        }
+    }
+      
+    @media screen and (min-width:576px) {
+        h1 {
+          font-size: $font-size-bannertop-mediamin576-h1;
+          height: 5rem;
+        }
+    }
+      
+    @media screen and (min-width: 768px) {
+        h1 {
+          font-size: $font-size-bannertop-mediamin768-h1;
+          height: 7rem;
+        }
+    }
+}

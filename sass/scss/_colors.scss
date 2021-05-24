@@ -1,0 +1,134 @@
+/** BG COLOURS **/
+
+/** Global **/
+$bg-color-body: #ffffff;
+$bg-color-scrollbar: #ffffff;
+$bg-color-scrollbar-thumb: green;
+
+/** Header **/
+$bg-color-navbar: transparent;
+$bg-color-navbar-black: transparent;
+$bg-color-navbar-menuiconbar:#ffffff;
+$bg-color-navbar-fixedtop: transparent;
+$bg-color-navbarnav-767:#ffffff;
+$bg-color-navbarnav-fixedtop-767:#ffffff;
+$bg-color-navbarnav-navlink-after:GREEN; 
+
+/** Info Bar **/
+$bg-color-infobar: linear-gradient(to right, black, rgb(101, 243, 101));
+
+/** Banners **/
+$bg-color-hovebanner: #EAEAEA;
+$bg-color-hovebanner-bigandsmall: #FFFFFF;
+
+/** Footer **/
+$bg-color-footer: white;
+$bg-color-footer-footerop: white;
+$bg-color-footer-footerop-h5-after:green;
+$bg-color-footertop-footernewsletter-form:green;
+$bg-color-footertop-footernewsletter-form-input: green;
+$bg-color-footertop-footernewsletter-form-input-hover: green;
+$bg-color-footertop-sociallinks-a: #2b2b2b;
+$bg-color-footertop-sociallinks-a-hover: green;
+
+/** Whatsapp **/
+$bg-color-whatsappbutton: #25d366;
+
+
+/** FONT COLOURS**/
+
+/** Header **/
+$font-color-navbardark-navlink:black;
+$font-color-navbardark-navlink-hover: green;
+$font-color-navbardark-navlink-active:green;
+$font-color-fixedtop-navbardark-navlink-active:green;
+$font-color-fixedtop-navbardark-navlink-after:green;
+
+/** Info Bar **/
+$font-color-infobar-infotxt: #ffffff;
+
+/** Carousels **/
+$font-color-itemcarousel-h5: #000000;
+$font-color-itemcarousel-a: #000000;
+$font-color-itemcarousel-cardprice:#3E7CB1;
+$font-color-brandcarousel-h5: #000000;
+
+/** Banners **/
+$font-color-hoverbanner-bigandsmall-a: #000000;
+$font-color-bannerservice-h1andh3: #ffffff;
+$font-color-bannertop-h1: #ffffff;
+
+/** Galleries **/
+$font-color-galleryitem-cardprice: #3E7CB1;
+
+/** Contacto **/
+$font-color-contacto-contactform-input: #b7b7b7;
+$font-color-contacto-contactform-input-placeholder: #b7b7b7;
+$font-color-contacto-contactform-textarea:#b7b7b7;
+$font-color-contacto-contactform-textarea-placeholder:#b7b7b7;
+
+/** Footer **/
+$font-color-footer: green;
+$font-color-footertop-footercontact-panda: green;
+$font-color-footertop-footercontact-footerlinks-chevron:green;
+$font-color-footertop-footercontact-footerlinks-a: green;
+$font-color-footertop-footercontact-footerlinks-a-hover: black;
+$font-color-footertop-footernewsletter-form-input: #000000;
+$font-color-footertop-sociallinks-a:#ffffff;
+$font-color-footertop-sociallinks-a-hover: #ffffff;
+
+/** Whatsapp **/
+$font-color-whatsappbutton-fawhatsapp: #ffffff;
+
+/** BORDER COLOURS **/
+
+/** Loader **/
+$border-color-loader1: white;
+$border-color-loader2: green;
+$border-color-loader3: blue;
+
+/** Info Bar **/
+$border-color-infobar-bottom: #000000;
+$border-color-infobar-div-right:  #000000;
+$border-color-infobar-div-path: #ffffff;
+
+/** Carousels **/
+$border-color-itemcarousel-h5-bottom: #c1c1c1;
+$border-color-brandcarousel-h5-bottom:#c1c1c1;
+
+/** Title & Description **/
+$border-color-description-bottom: #808080;
+
+/** Modals **/
+$border-color-modalcontent-h3-bottom: #000000;
+
+/** Contacto **/
+$border-color-contacto-contactinfo-h4: #808080;
+$border-color-contacto-contactform-input: #e1e1e1;
+$border-color-contacto-contactform-textarea: #e1e1e1;
+
+
+
+/** SHADOWS COLOURS **/
+
+/** Info Bar **/
+$boxshadow-infobar-color: #000000;
+
+/** Carousels **/
+$boxshadow-itemcarousel-card-hover-color: #0000004d;
+
+/** Banners **/
+$boxshadow-hoverbanner-bigandsmall: #000000;
+$boxshadow-hoverbanner-bigandsmall-hover: #000000;
+$textshadow-bannerservice-h1andh3:#282828;
+$boxshadow-bannertop: #000000;
+$boxshadow-bannertop-h1: #282828;
+
+/** Galleries **/
+$box-shadow-galleryitem-hover: #0000004d;
+
+/** Modals **/
+$box-shadow-modalcontent: #0000004d;
+
+/** Whatsapp **/
+$box-shadow-whatsappbutton: #000000;

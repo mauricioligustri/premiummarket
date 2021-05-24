@@ -1,0 +1,160 @@
+/** Header w/Navbar **/
+
+.navbar {
+	position: absolute;
+	background-color: $bg-color-navbar;
+	left: 0;
+	top: 0;
+	padding: 0;
+	width: 100%;
+	transition: background 0.6s ease-in;
+	z-index: 999;
+
+	&.bg-black{
+		background-color: $bg-color-navbar-black;
+		position: relative;
+	}
+
+	.navbar-logo {
+		max-height: 120px;
+		max-width: 100%;
+		width: auto;
+		height: auto;
+	}
+
+	.navbar-toggler {
+		position: relative;
+		height: 50px;
+		width: 50px;
+		border: none;
+		cursor: pointer;
+		outline: none;
+
+		.menu-icon-bar {
+			position: absolute;
+			left: 15px;
+			right: 15px;
+			height: 2px;
+			background-color: $bg-color-navbar-menuiconbar;
+			opacity: 0;
+			transform: translateY(-1px);
+			transition: all 0.3s ease-in;
+
+			&:first-child {
+				opacity: 1;
+				transform: translateY(-1px) rotate(45deg);	
+			}
+
+			&:last-child {
+				opacity: 1;
+				transform: translateY(-1px) rotate(135deg);
+			}
+		}
+
+		&.collapsed {
+			.menu-icon-bar {
+				opacity: 1;
+
+				&:first-child {
+					transform: translateY(-7px) rotate(0);	
+				}
+
+				&:last-child {
+					transform: translateY(5px) rotate(0);	
+				}
+			}
+		}
+	}
+
+	&.navbar-dark {
+		.navbar-nav {
+			.nav-link {
+				position: relative;
+				color: $font-color-navbardark-navlink;
+				font-size: $font-size-navbardark-navlink;
+				font-weight: 500;
+				text-transform: uppercase;
+	
+				&:focus,
+				&:hover {
+					color:$font-color-navbardark-navlink-hover;
+				}
+	
+				&.active {
+					color:$font-color-navbardark-navlink-active;
+					font-weight: 600;
+				}
+			}
+		}
+	}
+
+	&.fixed-top {
+		position: fixed;
+		animation: navbar-animation 0.6s;
+		background-color:$bg-color-navbar-fixedtop;
+
+		&.navbar-dark {
+			.navbar-nav {
+				.nav-link{
+					&.active {
+						color:$font-color-fixedtop-navbardark-navlink-active;
+					}
+					&::after {
+						background-color:$font-color-fixedtop-navbardark-navlink-after;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.navbar-brand {
+	  margin-left: 20px;
+	}
+	.navbar-nav {
+	  padding: 0 20px;
+	  background-color: $bg-color-navbarnav-767;
+	}
+	.navbar.fixed-top {
+		.navbar-nav {
+			background: $bg-color-navbarnav-fixedtop-767;
+		}
+	}
+}
+  
+@media screen and (min-width: 768px) {
+	.navbar-dark {
+		.navbar-nav {
+			.nav-link {
+				  padding: 20px 12px;
+				&::after {
+					content: '';
+					position: absolute;
+					bottom: 15px;
+					left: 20%;
+					right: 20%;
+					height: 1px;
+					background-color:$bg-color-navbarnav-navlink-after;
+					transform: scaleX(0);
+					transition: transform 0.1s ease-in;
+				}
+				&:hover::after {
+					transform: scaleX(1);
+				}
+			}
+		}
+	}
+}
+
+@keyframes navbar-animation {
+0% {
+	opacity: 0;
+	transform: translateY(-100%);
+}
+100% {
+	opacity: 1;
+	transform: translateY(0);
+}
+}
+  

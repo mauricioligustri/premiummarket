@@ -1,0 +1,75 @@
+/** MAIN **/
+
+/** Contacto **/
+
+#contacto {
+    padding: 30px 0;
+    
+    .contact-info,
+    .contact-form {
+        text-align: left;
+        margin-bottom: 40px;    
+    }
+
+    .contact-info {
+        h4 {
+            width: 100%;
+            border-bottom: 1px solid $border-color-contacto-contactinfo-h4;
+            font-weight: 600;
+            margin-bottom: 30px;    
+        }
+
+        h5 {
+            font-size: $font-size-contacto-contactinfo-h5;
+            width: 100%;
+            font-weight: 600;    
+        }
+
+        p{
+            margin-bottom: 15px;    
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        .contact-form {
+            margin-top: 29px;
+        }
+    }
+
+    .contact-form {
+        input {
+        	height: 50px;
+            width: 100%;
+            border: 1px solid $border-color-contacto-contactform-input;
+            padding-left: 20px;
+            font-size: $font-size-contacto-contactform-input;
+            color: $font-color-contacto-contactform-input;
+            margin-bottom: 30px;
+
+            &::placeholder {
+            	color: $font-color-contacto-contactform-input-placeholder;    
+            }
+        }
+
+        textarea {
+        	height: 150px;
+            width: 100%;
+            border: 1px solid $border-color-contacto-contactform-textarea;
+            padding-left: 20px;
+            padding-top: 12px;
+            font-size: $font-size-contacto-contactform-textarea;
+            color: $font-color-contacto-contactform-textarea;
+            margin-bottom: 24px;
+            resize: none;
+            
+            &::placeholder {
+            	color: $font-color-contacto-contactform-textarea-placeholder;    
+            }
+        }
+
+        button {
+            font-size: $font-size-contacto-contactform-button.6rem;
+            padding: 14px 35px;    
+        }
+    }    
+}

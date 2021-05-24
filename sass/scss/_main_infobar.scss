@@ -1,0 +1,39 @@
+/** MAIN **/
+
+/** Info Bar **/
+
+#info_bar {
+	background-image: $bg-color-infobar;
+	border-bottom: 1px solid $border-color-infobar-bottom;
+	box-shadow: 0 0 10px 0 $boxshadow-infobar-color;
+	margin-top: -5.6px;
+	padding: 10px 0;
+	width: 100%;
+
+	> div {
+		border-right: 1px solid $border-color-infobar-div-right;
+		
+		&:last-child {
+			border-right: none
+		}
+	}
+	
+	div {
+		path {
+			color: $border-color-infobar-div-path;
+		}
+	}
+
+	.info_txt {
+		color: $font-color-infobar-infotxt;
+		margin: 0 0 0 30px;
+
+		h5 {
+			font-weight: 700;
+		}
+
+		p {
+			margin:0;
+		}
+	}
+}

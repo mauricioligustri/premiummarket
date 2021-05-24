@@ -1,0 +1,19 @@
+/** MAIN **/
+
+/** Slider & Video **/
+#main-video {
+	padding:0;
+
+	video {
+		height: 100vh;
+		left: 0px;
+		object-fit: cover;
+		position: relative;
+		top: 0px;
+		width: 100%;
+	}
+}
+
+#main-slider {
+	padding:0;
+}

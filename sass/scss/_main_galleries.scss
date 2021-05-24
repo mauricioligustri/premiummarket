@@ -1,0 +1,58 @@
+/** MAIN **/
+
+/** Galleries **/
+
+#card-gallery {
+    padding: 20px 0;
+
+    .gallery-menu {
+        text-align:center;
+
+        ul {
+            padding: 0;
+            
+            li {
+                font-size: $font-size-cardgallery-gallerymenu-li;
+                display:inline-block;
+                margin-top:5px;
+                list-style:none;
+                padding:10px 15px;
+                cursor:pointer;
+                transition:all .5s ease;
+            }
+        }
+    }
+
+    .gallery-item {
+
+        .card {
+            border: none;
+            border-radius: 5px;
+            margin: 5px 0;
+            padding: 10px;
+            
+            .card-title {
+                font-size: $font-size-cardgallery-galleryitem-cardtitle;
+                text-align: center;  
+            }
+
+            .card-price {
+                color: $font-color-galleryitem-cardprice;
+                font-size: $font-size-cardgallery-galleryitem-cardprice;
+                font-weight: bold;
+                text-align: center;    
+            }
+
+            .btn {
+                font-size: $font-size-cardgallery-galleryitem-btn;
+                width: 100%;    
+            }
+
+            &:hover {
+                box-shadow: 0 0 20px 0 $box-shadow-galleryitem-hover;
+                transform: scale(0.95);
+                transition: 0.3s;    
+            }
+        }
+    }
+}

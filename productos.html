@@ -18,6 +18,431 @@
         <link rel="stylesheet" href="vendor/magnificpopup/css/magnificpopup.min.css">
         <!-- Template Main CSS File -->
         <link rel="stylesheet" href="css/styles.css">
+        <script>
+            window.onload = function () {
+                // Variables
+                let baseDeDatos = [
+                {
+                    id: 10000,
+                    category: "moist",
+                    subcategory: "oils",
+                    brand: "Terra Sana",
+                    name: "Aceite de Oliva Extra Virgen",
+                    price: 200,
+                    image: '../premiummarket/images/index/terrasana/aceiteolivaterrasana.JPG',
+                    imagelg: '../premiummarket/images/index/terrasana/aceiteolivaterrasana.JPG',
+                    description: 'Elaboramos nuestro aceite extra virgen a partir de olivas seleccionadas en forma manual, que se cultivan en un ambiente libre de fertilizantes, abonos e insecticidas químicos. La calidad de la materia prima y la elaboración mediante primera prensada en frío dan por resultado un aceite de oliva puro, de excelente sabor y alto valor nutricional. Producto de la agricultura orgánica',
+                    list: [],
+                },
+                {
+                    id: 10001,
+                    category: "moist",
+                    subcategory: "fresh",
+                    brand: "Terra Sana",
+                    name: "Aceitunas",
+                    price: 200,
+                    image: '../premiummarket/images/index/terrasana/aceitunasterrasana.JPG',
+                    imagelg: '../premiummarket/images/index/terrasana/aceitunasterrasana.JPG',
+                    description: 'Utilizamos frutos de producción orgánica que cosechamos y cultivamos en nuestra finca, cumpliendo estrictamente las pautas de certificación orgánica. Nuestras aceitunas gigantes son una exclusiva variedad llamada cerignola que llaman la atención por su tamaño y sabor particular. Producto de la Agricultura Orgánica.',
+                    list: [], 
+                },
+                {
+                    id: 10002,
+                    category: "moist",
+                    subcategory: "oils",
+                    brand: "Terra Sana",
+                    name: "Aceto Terra Sana",
+                    price: 200,
+                    image: '../premiummarket/images/index/terrasana/acetoterrasana.JPG',
+                    imagelg: '../premiummarket/images/index/terrasana/acetoterrasana.JPG',
+                    description: 'Su conservación en barricas de roble le aporta un sabor y aroma inigualables, un toque especial para todo tipo de platos y ensaladas. Elaborado artesanalmente a partir de vino y mosto de uva orgánicos. Producto de la Agricultura Orgánica. Libre de gluten. Cultivados en campos libres de agroquímicos, a partir de semillas orgánicas.',
+                    list: [], 
+                },
+                {
+                    id: 10003,
+                    category: "dry",
+                    subcategory: "fresh",
+                    brand: "Terra Sana",
+                    name: "Arroz",
+                    price: 200,
+                    image: '../premiummarket/images/index/terrasana/arrozterrasana.JPG',
+                    imagelg: '../premiummarket/images/index/terrasana/arrozterrasana.JPG',
+                    description: 'Cultivados en campos libres de agroquímicos, a partir de semillas orgánicas.',
+                    list: [], 
+                },
+                {
+                    id: 10004,
+                    category: "dry",
+                    subcategory: "fresh",
+                    brand: "Terra Sana",
+                    name: "Frutos Secos",
+                    price: 200,
+                    image: '../premiummarket/images/index/terrasana/frutossecos2terrasana.JPG',
+                    imagelg: '../premiummarket/images/index/terrasana/frutossecos2terrasana.JPG',
+                    description: 'Ricos en proteínas, fibra y minerales, poseen además notables virtudes antioxidantes y disminuyen el riesgo cardiovascular. Al ser cultivados en un ambiente ecológico conservan intactas sus propiedades nutritivas. Producto de la Agricultura Orgánica.',
+                    list: [], 
+                },
+                {
+                    id: 10005,
+                    category: "dry",
+                    subcategory: "fresh",
+                    brand: "Terra Sana",
+                    name: "Frutos Secos - Nueces y Almendras",
+                    price: 200,
+                    image: '../premiummarket/images/index/terrasana/frutossecosterrasana.JPG',
+                    imagelg: '../premiummarket/images/index/terrasana/frutossecosterrasana.JPG',
+                    description: 'Nuestras manzanas y peras orgánicas desecadas resultan una alternativa saludable a los snacks convencionales. Ideales para llevar siempre encima y consumir solas o como agregado de yogures y granolas. Un producto natural, sin conservantes ni azúcares agregados.',
+                    list: [], 
+                },
+                {
+                    id: 10006,
+                    category: "dry",
+                    subcategory: "fresh",
+                    brand: "Terra Sana",
+                    name: "Harina Integral",
+                    price: 200,
+                    image: '../premiummarket/images/index/terrasana/harinaintegralterrasana.JPG',
+                    imagelg: '../premiummarket/images/index/terrasana/harinaintegralterrasana.JPG',
+                    description: 'Elaborada a partir de granos de trigo enteros que fueron cultivados evitando el uso de fertilizantes y agroquímicos, conservando intactas sus propiedades nutritivas. Molienda fina ideal para panadería y molienda extra fina especialmente indicada para repostería y preparaciones delicadas. Producto de la Agricultura Orgánica.',
+                    list: [],  
+                },
+                {
+                    id: 10007,
+                    category: "moist",
+                    subcategory: "fresh",
+                    brand: "Terra Sana",
+                    name: "Miel",
+                    price: 200,
+                    image: '../premiummarket/images/index/terrasana/mielterrasana.JPG',
+                    imagelg: '../premiummarket/images/index/terrasana/mielterrasana.JPG',
+                    description: 'Miel pura multiflora de monte virgen, libre de aditivos y conservantes. Elaborada evitando procesos de calentamiento y pasteurización, con el objetivo de garantizar sus múltiples beneficios para la salud y cualidades nutricionales. Producto 100% natural. Producto de la Agricultura Orgánica.',
+                    list: [], 
+                },
+                {
+                    id: 10008,
+                    category: "dry",
+                    subcategory: "fresh",
+                    brand: "Terra Sana",
+                    name: "Pasas de Uva",
+                    price: 200,
+                    image: '../premiummarket/images/index/terrasana/pasasdeuvaterrasana.JPG',
+                    imagelg: '../premiummarket/images/index/terrasana/pasasdeuvaterrasana.JPG',
+                    description: 'Seleccionamos cuidadosamente los frutos y luego simplemente se dejan a secar hasta quedar dulces y de color oscuro. Contienen altas dosis de fibra, hidratos de carbono y potasio. Resultan además una excelente fuente de antioxidantes. Producto 100% natural. Producto de la Agricultura Orgánica.',
+                    list: [],
+                },
+                {
+                    id: 10009,
+                    category: "dry",
+                    subcategory: "fresh",
+                    brand: "Terra Sana",
+                    name: "Pasta de Aceitunas",
+                    price: 200,
+                    image: '../premiummarket/images/index/terrasana/pastaaceitunasterrasana.JPG',
+                    imagelg: '../premiummarket/images/index/terrasana/pastaaceitunasterrasana.JPG',
+                    description: 'El resultado de procesar la mejor selección de aceitunas cosechadas y procesadas en forma manual. De agradable sabor y textura, resultan el acompañamiento ideal de platos mediterráneos, ensaladas y picadas. Producto 100% natural.',
+                    list: [], 
+                },
+                {
+                    id: 10010,
+                    category: "dry",
+                    subcategory: "fresh",
+                    brand: "Terra Sana",
+                    name: "Quinoa",
+                    price: 200,
+                    image: '../premiummarket/images/index/terrasana/quinoaterrasana.JPG',
+                    imagelg: '../premiummarket/images/index/terrasana/quinoaterrasana.JPG',
+                    description: 'Cuatro variedades de uno de los alimentos nutricionalmente más completos del reino vegetal. Cultivadas utilizando técnicas ancestrales, que se complementan con tecnologías actuales, desarrolladas por la agricultura moderna. Producto Orgánico Certificado en Origen.',
+                    list: [], 
+                },
+                {
+                    id: 10011,
+                    category: "moist",
+                    subcategory: "oils",
+                    brand: "Terra Sana",
+                    name: "Salsa Picante",
+                    price: 200,
+                    image: '../premiummarket/images/index/terrasana/salsapicanteterrasana.JPG',
+                    imagelg: '../premiummarket/images/index/terrasana/salsapicanteterrasana.JPG',
+                    description: 'Salsa estilo tabasco elaborada con ajíes picantes molidos de variedad italiana. Un aderezo saludable, libre de aditivos químicos y conservantes. Producto 100% natural, libre de conservantes.',
+                    list: [], 
+                },
+                {
+                    id: 10012,
+                    category: "moist",
+                    subcategory: "oils",
+                    brand: "Terra Sana",
+                    name: "Tomate Orgánico Triturado",
+                    price: 200,
+                    image: '../premiummarket/images/index/terrasana/tomateterrasana.JPG',
+                    imagelg: '../premiummarket/images/index/terrasana/tomateterrasana.JPG',
+                    description: 'Una alternativa 100% natural a las salsas de tomate convencionales, sin agregados de aditivos y conservantes. Elaborada con un único ingrediente: tomates orgánicos, nada más. Producto de la Agricultura Orgánica. Libre de gluten.',
+                    list: [], 
+                },
+                {
+                    id: 10013,
+                    category: "moist",
+                    subcategory: "oils",
+                    brand: "Terra Sana",
+                    name: "Vinagre",
+                    price: 200,
+                    image: '../premiummarket/images/index/terrasana/vinagreterrasana.JPG',
+                    imagelg: '../premiummarket/images/index/terrasana/vinagreterrasana.JPG',
+                    description: 'Elaborados artesanalmente a partir de materias primas seleccionadas en forma manual y cultivados en un ambiente libre de fertilizantes, herbicidas e insecticidas químicos. Para preparar aderezos deliciosos y naturales, sin aditivos ni azúcar agregada. Producto de la Agricultura Orgánica. Libre de gluten.',
+                    list: [], 
+                },
+    
+                ];
+                
+                let carrito = [];
+                let total = 0;
+                let $gallery = document.querySelector('#gallery');
+                let $modals = document.querySelector('#products-modals')
+                let $carrito = document.querySelector('#carrito');
+                let $total = document.querySelector('#total');
+                let $botonVaciar = document.querySelector('#boton-vaciar');
+    
+                // Funciones
+    
+                function renderItems() {
+                    for (let attribute of baseDeDatos) {
+                        // Estructura
+                        let miNodo = document.createElement('div');
+                        miNodo.classList.add('card', attribute['subcategory'], 'col-lg-3', 'col-md-4', 'col-sm-6', 'col-12');
+                        // Imagen
+                        let miNodoImagen = document.createElement('img');
+                        miNodoImagen.classList.add('card-img-top');
+                        miNodoImagen.setAttribute('src', attribute['image']);
+                        // Body
+                        let miNodoCardBody = document.createElement('div');
+                        miNodoCardBody.classList.add('card-body');
+                        // Titulo
+                        let miNodoTitle = document.createElement('p');
+                        miNodoTitle.classList.add('card-title');
+                        miNodoTitle.textContent = `${attribute['brand']} ${attribute['name']}`;
+                        // Precio
+                        let miNodoPrecio = document.createElement('p');
+                        miNodoPrecio.classList.add('card-price');
+                        let precioFormateado = Intl.NumberFormat("de-DE").format(attribute['price']);
+                        miNodoPrecio.textContent = `$ ${precioFormateado}`;
+                        // Boton Info
+                        let miNodoInfoBoton = document.createElement('button');
+                        miNodoInfoBoton.setAttribute('type', 'button');
+                        miNodoInfoBoton.classList.add('btn', 'btn-primary');
+                        miNodoInfoBoton.setAttribute('data-toggle', 'modal');
+                        miNodoInfoBoton.setAttribute('data-target', `#modal${attribute['id']}`);
+                        miNodoInfoBoton.textContent = 'Mas Info';
+                        // Boton Agregar al Carrito
+                        let miNodoAgregarBoton = document.createElement('button');
+                        miNodoAgregarBoton.classList.add('btn', 'btn-success', 'mt-1');
+                        miNodoAgregarBoton.setAttribute('marcador', attribute['id']);
+                        miNodoAgregarBoton.textContent = 'Agregar al carrito ';
+                        miNodoAgregarBoton.addEventListener('click', addArticle);
+                        // Simbolo Carrito Font Awesome 
+                        let fontAwesomeCart = document.createElement('i');
+                        fontAwesomeCart.classList.add('fas', 'fa-cart-plus');
+                        // Insertamos
+                        $gallery.appendChild(miNodo);
+                        miNodo.appendChild(miNodoCardBody);
+                        miNodoCardBody.appendChild(miNodoImagen);
+                        miNodoCardBody.appendChild(miNodoTitle);
+                        miNodoCardBody.appendChild(miNodoPrecio);
+                        miNodoCardBody.appendChild(miNodoInfoBoton);
+                        miNodoCardBody.appendChild(miNodoAgregarBoton);
+                        miNodoAgregarBoton.appendChild(fontAwesomeCart);
+                    }
+                }
+                
+                function renderItemsModals() {
+                    for (let attribute of baseDeDatos) {
+                        // Estructura Modal 
+                        let itemModal = document.createElement('div');
+                        itemModal.id = `modal${attribute['id']}`;
+                        itemModal.classList.add('modal', 'fade');
+                        itemModal.setAttribute('tabindex', '-1');
+                        itemModal.setAttribute('role','dialog');
+                        itemModal.setAttribute('aria-labelledby','myHugeModalLabel');
+                        itemModal.setAttribute('aria-hidden', 'true');
+                        
+                        // Modal Dialog
+                        let itemModalDialog = document.createElement('div');
+                        itemModalDialog.classList.add('modal-dialog','modal-xl');
+
+                        // Modal Content
+                        let itemModalContent = document.createElement('div');
+                        itemModalContent.classList.add('modal-content');
+
+                        // Modal Container
+                        let itemModalContainer = document.createElement('div');
+                        itemModalContainer.classList.add('container');
+
+                        // Modal Row
+                        let itemModalRow = document.createElement('div');
+                        itemModalRow.classList.add('row');
+
+                        // Modal Responsive Left
+                        let itemModalResponsiveLeft = document.createElement('div');
+                        itemModalResponsiveLeft.classList.add('col-12', 'col-lg-6', 'p-4');
+
+                        // Modal Image
+                        let itemModalImage = document.createElement('img');
+                        itemModalImage.classList.add('w-100');
+                        itemModalImage.setAttribute('src', attribute['imagelg']);
+
+                        // Modal Responsive Right
+                        let itemModalResponsiveRight = document.createElement('div');
+                        itemModalResponsiveRight.classList.add('col-12', 'col-lg-6', 'p-4');
+
+                        // Modal Title
+                        let itemModalTitle = document.createElement('h3');
+                        itemModalTitle.classList.add('text-center');
+                        itemModalTitle.textContent = `${attribute['brand']} ${attribute['name']}`;
+
+                        // Modal Body
+                        let itemModalBody = document.createElement('div');
+                        itemModalBody.classList.add('description');
+
+                        // Modal Description <p>
+                        let itemModalDescription = document.createElement('p');
+                        itemModalDescription.textContent = `${attribute['description']}`;
+
+                        // Titulo Caracteristicas Principales
+                        let itemPrincipalCarTitle = document.createElement('h5');
+                        itemPrincipalCarTitle.textContent = 'Características Principales';
+
+                        // Lista de Caracterìsticas
+                        let itemListCar = document.createElement('ul');
+                        let itemListCarIl = document.createElement('li');
+
+
+                        // Insertamos
+                        $modals.appendChild(itemModal);
+                        itemModal.appendChild(itemModalDialog);
+                        itemModalDialog.appendChild(itemModalContent);
+                        itemModalContent.appendChild(itemModalContainer);
+                        itemModalContainer.appendChild(itemModalRow);
+                        itemModalRow.appendChild(itemModalResponsiveLeft);
+                        itemModalResponsiveLeft.appendChild(itemModalImage);
+                        itemModalRow.appendChild(itemModalResponsiveRight);
+                        itemModalResponsiveRight.appendChild(itemModalTitle);
+                        itemModalResponsiveRight.appendChild(itemModalBody);
+                        itemModalBody.appendChild(itemModalDescription);
+                        itemModalBody.appendChild(itemPrincipalCarTitle);
+                        itemModalBody.appendChild(itemListCar);
+                    }      
+                }
+                
+                function addArticle () {
+                    // Anyadimos el Nodo a nuestro carrito
+                    carrito.push(this.getAttribute('marcador'))
+                    // Renderizamos el carrito 
+                    renderizarCarrito();
+                    // Calculo el total
+                    calcularTotal();
+                    // Imprimimos en consola los ID de los productos del carrito
+                    console.log(carrito);
+                }
+    
+                function renderizarCarrito() {
+                    // Vaciamos todo el html
+                    $carrito.textContent = '';
+                    // Quitamos los duplicados
+                    let carritoSinDuplicados = [...new Set(carrito)]
+
+                    // Generamos los Nodos a partir de carrito
+                    carritoSinDuplicados.forEach(function (item, indice) {
+                        // Obtenemos el item que necesitamos de la variable base de datos
+                        let miItem = baseDeDatos.filter(function(itemBaseDatos) {
+                            return itemBaseDatos['id'] == item;
+                        });
+
+                        // Cuenta el número de veces que se repite el producto
+                        let numeroUnidadesItem = carrito.reduce(function (total, itemId) {
+                            return itemId === item ? total += 1 : total;
+                        }, 0);
+
+                        // Creamos el nodo del item del carrito
+                        let miNodoFila = document.createElement('tr');
+                        
+                        let miNodoColProduct = document.createElement('td');
+                        //miNodoColProduct.classList.add('list-group-item', 'text-right', 'mx-2');
+                        miNodoColProduct.textContent = `${miItem[0]['brand']} ${miItem[0]['name']}`
+                        
+                        let miNodoColPrice = document.createElement('td');
+                        //miNodoColPrice.classList.add('list-group-item', 'text-right', 'mx-2');
+                        miNodoColPrice.textContent = `${miItem[0]['price']}`;
+
+                        let miNodoColCant = document.createElement('td');
+                        // miNodoColCant.classList.add('list-group-item', 'text-right', 'mx-2');
+                        miNodoColCant.textContent = `${numeroUnidadesItem}`;
+
+                        let miNodoColSubtotal = document.createElement('td');
+                        let subtotal = miItem[0]['price'] * numeroUnidadesItem;
+                        miNodoColSubtotal.textContent = `${subtotal}`;
+
+                        // Boton de borrar
+                        let miNodoColAcciones = document.createElement('td');
+                        let miBotonBorrar = document.createElement('button');
+                        miBotonBorrar.classList.add('btn', 'btn-danger', 'mx-5');
+                        miBotonBorrar.textContent = 'X';
+                        miBotonBorrar.style.marginLeft = '1rem';
+                        miBotonBorrar.setAttribute('item', item);
+                        miBotonBorrar.addEventListener('click', borrarItemCarrito);
+
+                        // Mezclamos nodos
+                        $carrito.appendChild(miNodoFila);
+                        miNodoFila.appendChild(miNodoColProduct);
+                        miNodoFila.appendChild(miNodoColPrice);
+                        miNodoFila.appendChild(miNodoColCant);
+                        miNodoFila.appendChild(miNodoColSubtotal);
+                        miNodoFila.appendChild(miNodoColAcciones);
+                        miNodoColAcciones.appendChild(miBotonBorrar);       
+                    });
+                }
+    
+                function borrarItemCarrito() {
+                    // Obtenemos el producto ID que hay en el boton pulsado
+                    let id = this.getAttribute('item');
+                    // Borramos todos los productos
+                    carrito = carrito.filter(function (carritoId) {
+                        return carritoId !== id;
+                    });
+                    // volvemos a renderizar
+                    renderizarCarrito();
+                    // Calculamos de nuevo el precio
+                    calcularTotal();
+                }
+    
+                function calcularTotal() {
+                    // Limpiamos precio anterior
+                    total = 0;
+                    // Recorremos el array del carrito
+                    for (let item of carrito) {
+                        // De cada elemento obtenemos su precio
+                        let miItem = baseDeDatos.filter(function(itemBaseDatos) {
+                            return itemBaseDatos['id'] == item;
+                        });
+                        total = total + miItem[0]['price'];
+                    }
+                    // Formateamos el total para que solo tenga dos decimales
+                    let totalDosDecimales = total.toFixed(2);
+                    // Renderizamos el precio en el HTML
+                    $total.textContent = `Total: $${totalDosDecimales}`;
+                }
+    
+                function vaciarCarrito() {
+                    // Limpiamos los productos guardados
+                    carrito = [];
+                    console.log(carrito)
+                    // Renderizamos los cambios
+                    renderizarCarrito();
+                    calcularTotal();
+                }
+
+                // Inicio
+                renderItems();
+                renderItemsModals();
+            } 
+        </script>
     </head>
     <body>
         <!-- Page Preloder -->
@@ -39,24 +464,68 @@
                             <li><a href="index.html" class="nav-item nav-link">Inicio</a></li>
                             <li><a href="productos.html" class="nav-item nav-link active">Productos</a></li>
                             <li><a href="contacto.html" class="nav-item nav-link">Contacto</a></li>
+                            <li>
+                                <a href="" class="nav-item nav-link" data-toggle="modal" data-target="#cartModal">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span id="cartUnits" class="p-3 text-warning"></span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </nav>
         </header>
+        <!-- Cart Modal -->
+        <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header border-bottom-0">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                        Tu Carrito
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-image">
+                        <thead>
+                            <tr>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id ="carrito">
+                        </tbody>
+                        </table> 
+                        <div class="d-flex justify-content-end">
+                        <h5 id = "total"></h5>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-top-0 d-flex justify-content-between">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success">Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <!-- Main -->
         <main>
             <section id="banner_top">
                 <img src="./images/general/header_banner.jpg" alt="header_banner">
-                <h1>ACCESORIOS</h1>
+                <h1>PRODUCTOS</h1>
             </section>
             <section id="description">
                 <div class="container">
                     <div class="row">
-                        <h4>ENCONTRÁ EL ACCESORIO QUE NECESITÁS</h4>
-                        <p>Tenemos todo tipo de accesorios y repuestos, desde las gamas de entrada a los más exigentes para alta competencia.</p>
-                        <p>Trabajamos con nuestros proveedores asociados de las mejores marcas a nivel mundial.</p>
-                        <p>Ante alguna duda ponete en contacto con nuestros vendedores que sabrán brindarte la mejor opción ajustada a tu actividad y presupuesto.</p>
+                        <h4> AQUÍ VAS A ENCONTRAR TODO LO QUE NECESITES PARA CUIDAR TU SALUD </h4>
+                        <p>Tenemos todo tipo de alimentos órganicos, importados y de todas de las regiones del país</p>
+                        <p>Trabajamos con nuestros proveedores que practican un cultivo responsable y sustentable</p>
+                        <p>Ante alguna duda ponete en contacto con nuestros vendedores que sabrán brindarte la mejor opción ajustada a tu necesidad y presupuesto.</p>
                     </div>
                 </div>
             </section>
@@ -65,873 +534,26 @@
                 <div class="container">
                     <div class="gallery-menu">
                        <ul>
-                          <li class="btn btn-outline-primary active" data-filter="*">Todos</li>
-                          <li class="btn btn-outline-primary" data-filter=".asiento">Asientos</li>
-                          <li class="btn btn-outline-primary" data-filter=".caramagnola">Caramagnolas</li>
-                          <li class="btn btn-outline-primary" data-filter=".cuadro">Cuadros</li>
-                          <li class="btn btn-outline-primary" data-filter=".cubierta">Cubiertas</li>
-                          <li class="btn btn-outline-primary" data-filter=".inflador">Infladores</li>
-                          <li class="btn btn-outline-primary" data-filter=".manubrio">Manubrios</li>
-                          <li class="btn btn-outline-primary" data-filter=".punos">Puños</li>
+                          <li class="btn btn-outline-primary active" data-filter="*">Todas</li>
+                          <li class="btn btn-outline-primary" data-filter=".wines">Vinos</li>
+                          <li class="btn btn-outline-primary" data-filter=".oils">Aceites, salsas y especias</li>
+                          <li class="btn btn-outline-primary" data-filter=".coffee">Café en granos</li>
+                          <li class="btn btn-outline-primary" data-filter=".fresh">Frutas y Verduras Orgánicas</li>
+                          <li class="btn btn-outline-primary" data-filter=".juice">Jugos Orgánicos</li>
+
                        </ul>
                     </div>
-                    <div class="gallery-item row">
-                        <div class="card asiento col-lg-3 col-md-4 col-sm-6 col-12">
-                            <img class="card-img-top" src="images/accesorios/asientos/belcarra-1.0-cutout-300x300.jpg" alt="Belcarra 1.0 Cut Out">
-                            <div class="card-body">
-                                <p class="card-title">Syncros Belcarra 1.0 Cut Out</p>
-                                <p class="card-price">$24.600,00</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accesorios-1">Más Info</button>
-                            </div>
-                        </div>
-                        <div class="card asiento col-lg-3 col-md-4 col-sm-6 col-12">
-                            <img class="card-img-top" src="images/accesorios/asientos/xr1.0-carbono-300x300.jpg" alt="XR 1.0 Carbono">
-                            <div class="card-body">
-                                <p class="card-title">Syncros XR 1.0 Carbono</p>
-                                <p class="card-price">$23.358,50</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accesorios-2">Más Info</button>
-                            </div>
-                        </div>
-                        <div class="card asiento col-lg-3 col-md-4 col-sm-6 col-12">
-                            <img class="card-img-top" src="images/accesorios/asientos/belcarra-1.5-cutout-300x300.jpg" alt="Belcarra 1.5 Cut Out">
-                            <div class="card-body">
-                                <p class="card-title">Syncros Belcarra 1.5 Cut Out</p>
-                                <p class="card-price">$15.900,00</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accesorios-3">Más Info</button>
-                            </div>
-                        </div>
-                        <div class="card asiento col-lg-3 col-md-4 col-sm-6 col-12">
-                            <img class="card-img-top" src="images/accesorios/asientos/belcarra-rr-2.0-channel-300x300.jpg" alt="Belcarra RR 2.0 Channel">
-                            <div class="card-body">
-                                <p class="card-title">Syncros Belcarra RR 2.0 Channel</p>
-                                <p class="card-price">$11.920,00</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accesorios-4">Más Info</button>
-                            </div>
-                        </div>
-                        <div class="card asiento col-lg-3 col-md-4 col-sm-6 col-12">
-                            <img class="card-img-top" src="images/accesorios/asientos/belcarra-2.0-cutout-300x300.jpg" alt="Belcarra V 2.0 Cut Out">
-                            <div class="card-body">
-                                <p class="card-title">Syncros Belcarra V 2.0 Cut Out</p>
-                                <p class="card-price">$10.750,00</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accesorios-5">Más Info</button>
-                            </div>
-                        </div>
-                        <div class="card asiento col-lg-3 col-md-4 col-sm-6 col-12">
-                            <img class="card-img-top" src="images/accesorios/asientos/rr-2.0-300x300.jpg" alt="RR 2.0">
-                            <div class="card-body">
-                                <p class="card-title">Syncros RR 2.0</p>
-                                <p class="card-price">$10.060,00</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accesorios-6">Más Info</button>
-                            </div>
-                        </div>
-                        <div class="card asiento col-lg-3 col-md-4 col-sm-6 col-12">
-                            <img class="card-img-top" src="images/accesorios/asientos/rr-1.5-white-300x300.jpg" alt="RR 1.5 Titanio Blanco">
-                            <div class="card-body">
-                                <p class="card-title">Syncros RR 1.5 Titanio Blanco</p>
-                                <p class="card-price">$8.240,10</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accesorios-7">Más Info</button>
-                            </div>
-                        </div>
-                        <div class="card caramagnola col-lg-3 col-md-4 col-sm-6 col-12">
-                            <img class="card-img-top" src="images/accesorios/caramagnolas/elite-300x300.jpg" alt="Elite Fly Scott-Mitchelton">
-                            <div class="card-body">
-                                <p class="card-title">Elite Fly Scott-Mitchelton</p>
-                                <p class="card-price">$2.216,70</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accesorios-8">Más Info</button>
-                            </div>
-                        </div>
-                        <div class="card caramagnola col-lg-3 col-md-4 col-sm-6 col-12">
-                            <img class="card-img-top" src="images/accesorios/caramagnolas/camelbak-chillrace-650ml-300x300.jpg" alt="Camelbak Chill Race 650ml">
-                            <div class="card-body">
-                                <p class="card-title">Camelback Chill Race 650ml</p>
-                                <p class="card-price">$2.230,00</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accesorios-9">Más Info</button>
-                            </div>
-                        </div>
-                        <div class="card caramagnola col-lg-3 col-md-4 col-sm-6 col-12">
-                            <img class="card-img-top" src="images/accesorios/caramagnolas/camelbak-chillrace-720ml-300x300.jpg" alt="Camelbak Chill Race 720ml">
-                            <div class="card-body">
-                                <p class="card-title">Camelback Chill Race 720ml</p>
-                                <p class="card-price">$2.450,00</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accesorios-10">Más Info</button>
-                            </div>
-                        </div>
-                        <div class="card cuadro col-lg-3 col-md-4 col-sm-6 col-12">
-                            <img class="card-img-top" src="images/accesorios/cuadros/scale-940-300x300.jpg" alt="Scale 940">
-                            <div class="card-body">
-                                <p class="card-title">Cuadro Scott Scale 940 Carbono</p>
-                                <p class="card-price">$198.170,00</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accesorios-11">Más Info</button>
-                            </div>
-                        </div>
-                        <div class="card cuadro col-lg-3 col-md-4 col-sm-6 col-12">
-                            <img class="card-img-top" src="images/accesorios/cuadros/scale-610-300x300.jpg" alt="Scale 610">
-                            <div class="card-body">
-                                <p class="card-title">Cuadro Scott Scale 610 Carbono</p>
-                                <p class="card-price">$66.000,00</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accesorios-12">Más Info</button>
-                            </div>
-                        </div>
-                        <div class="card cubierta col-lg-3 col-md-4 col-sm-6 col-12">
-                            <img class="card-img-top" src="images/accesorios/cubiertas/mitas-scylla-300x300.jpg" alt="Mitas Scylla">
-                            <div class="card-body">
-                                <p class="card-title">Mitas Scylla TR 29x2.45</p>
-                                <p class="card-price">$9.822,00</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accesorios-13">Más Info</button>
-                            </div>
-                        </div>
-                        <div class="card cubierta col-lg-3 col-md-4 col-sm-6 col-12">
-                            <img class="card-img-top" src="images/accesorios/cubiertas/mitas-zefyros-300x300.jpg" alt="Mitas Zefyros">
-                            <div class="card-body">
-                                <p class="card-title">Mitas Zefyros TDI 29x2.25</p>
-                                <p class="card-price">$8.629,00</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accesorios-14">Más Info</button>
-                            </div>
-                        </div>
-                        <div class="card cubierta col-lg-3 col-md-4 col-sm-6 col-12">
-                            <img class="card-img-top" src="images/accesorios/cubiertas/mitas-cobra-300x300.jpg" alt="Mitas Cobra">
-                            <div class="card-body">
-                                <p class="card-title">Mitas Cobra 26x1.9 Negra</p>
-                                <p class="card-price">$2.339,17</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accesorios-15">Más Info</button>
-                            </div>
-                        </div>
-                        <div class="card inflador col-lg-3 col-md-4 col-sm-6 col-12">
-                            <img class="card-img-top" src="images/accesorios/infladores/syncros-vernon-300x300.jpg" alt="Syncros Vernon">
-                            <div class="card-body">
-                                <p class="card-title">Inflador de Pie Syncros Vernon</p>
-                                <p class="card-price">$10.930,00</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accesorios-16">Más Info</button>
-                            </div>
-                        </div>
-                        <div class="card inflador col-lg-3 col-md-4 col-sm-6 col-12">
-                            <img class="card-img-top" src="images/accesorios/infladores/boundary-300x300.jpg" alt="Syncros Boundary">
-                            <div class="card-body">
-                                <p class="card-title">Inflador Syncros Mini Pump</p>
-                                <p class="card-price">$3.450,00</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accesorios-17">Más Info</button>
-                            </div>
-                        </div>
-                        <div class="card manubrio col-lg-3 col-md-4 col-sm-6 col-12">
-                            <img class="card-img-top" src="images/accesorios/manubrios/fraser-17-grados-300x300.jpg" alt="Fraser 17º Grados">
-                            <div class="card-body">
-                                <p class="card-title">Syncros Fraser 740mm -17º</p>
-                                <p class="card-price">$59.400,00</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accesorios-18">Más Info</button>
-                            </div>
-                        </div>
-                        <div class="card manubrio col-lg-3 col-md-4 col-sm-6 col-12">
-                            <img class="card-img-top" src="images/accesorios/manubrios/fraser-25-grados-300x300.jpg" alt="Fraser 25º Grados">
-                            <div class="card-body">
-                                <p class="card-title">Syncros Fraser 740mm -25º</p>
-                                <p class="card-price">$59.400,00</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accesorios-19">Más Info</button>
-                            </div>
-                        </div>
-                        <div class="card manubrio col-lg-3 col-md-4 col-sm-6 col-12">
-                            <img class="card-img-top" src="images/accesorios/manubrios/fraser-300x300.jpg" alt="Fraser Integrado">
-                            <div class="card-body">
-                                <p class="card-title">Syncros Fraser 720mm</p>
-                                <p class="card-price">$57.435,00</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accesorios-20">Más Info</button>
-                            </div>
-                        </div>
-                        <div class="card manubrio col-lg-3 col-md-4 col-sm-6 col-12">
-                            <img class="card-img-top" src="images/accesorios/manubrios/fl-1.0-carbon-300x300.jpg" alt="Fl 1.0 Carbon">
-                            <div class="card-body">
-                                <p class="card-title">Syncros FL 1.0 Carbon 740mm</p>
-                                <p class="card-price">$28.376,00</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accesorios-21">Más Info</button>
-                            </div>
-                        </div>
-                        <div class="card punos col-lg-3 col-md-4 col-sm-6 col-12">
-                            <img class="card-img-top" src="images/accesorios/punos/pro-300x300.jpg" alt="Pro">
-                            <div class="card-body">
-                                <p class="card-title">Syncros Pro Black</p>
-                                <p class="card-price">$1.973,00</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accesorios-22">Más Info</button>
-                            </div>
-                        </div>
+                    <div id="gallery" class="gallery-item row">    
                     </div>
                 </div>
             </section>
-            <!--Products Modals-->
+            <!--Products Modals -->
             <section id="products-modals">
-                <div id="accesorios-1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <img class="w-100" src="images/accesorios/asientos/belcarra-1.0-cutout.jpg" alt="Belcarra 1.0 Cut Out">  
-                                    </div>
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <h3 class="text-center">Syncros Belcarra 1.0 Cut Out</h3>
-                                        <div class="description">
-                                            <p>Nuestro asiento orientado a la máxima performance, el Belcarra V 1.0 es parte de nuestro concepto V-CONCEPT trabajado junto a nuestros corredores con diseño específico que adapta la pelvis y lumbares para permitir una posición aero más agresiva. Sus rieles de carbono permiten un bajo peso de solo 160grs.</p>
-                                            <h5>Características Principales</h5>
-                                            <ul>
-                                                <li>RANGO DE USO: High Performance Road and MTB</li>
-                                                <li>BASE: Carbon-reinforced nylon</li>
-                                                <li>RIELES Oversized 7x9mm Carbon</li>
-                                                <li>FOAM Light PU</li>
-                                                <li>COVERTURA: Microfabric Cut Out</li>
-                                                <li>DIMENSIONES: 245x140mm</li>
-                                                <li>PESO: 160g</li>
-                                            </ul>
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>    
-                        </div> 
-                    </div>
-                </div>
-                <div id="accesorios-2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <img class="w-100" src="images/accesorios/asientos/xr1.0-carbono.jpg" alt="XR 1.0 Carbono">  
-                                    </div>
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <h3 class="text-center">Syncros XR 1.0 Carbono</h3>
-                                        <div class="description">
-                                            <p>Gracias a la combinación de los raíles de carbono ligeros y las carcasas inyectadas, estos sillines XR1.0 utilizan la cantidad justa de acolchado para mantener el confort en las salidas largas sin añadir volumen. Está disponible en 2 anchos diferentes, así que tienes asegurado un ajuste perfecto.</p>
-                                            <h5>Características Principales</h5>
-                                            <ul>
-                                                <li>RANGE OF USE MTB de alto rendimiento</li>
-                                                <li>BASE Nailon reforzado con carbono</li>
-                                                <li>RAILS Carbono extragrande 7 x 9 mm</li>
-                                                <li>FOAM PU ligero</li>
-                                                <li>COVER Microtejido</li>
-                                                <li>SHAPE Canal central</li>
-                                                <li>DIMENSIONS estrecho 275 x 132 mm</li>
-                                                <li>WEIGHT 170 g</li>
-                                            </ul>
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>    
-                        </div> 
-                    </div>
-                </div>
-                <div id="accesorios-3" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <img class="w-100" src="images/accesorios/asientos/belcarra-1.5-cutout.jpg" alt="Belcarra 1.5 Cut Out">  
-                                    </div>
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <h3 class="text-center">Syncros Belcarra 1.5 Cut Out</h3>
-                                        <div class="description">
-                                            <p>Nuestro sillín diseñado para ofrecer lo máximo en prestaciones, el Belcarra V 1.5, forma parte de nuestro programa V-Concept, desarrollado para los ciclistas más flexibles, especialmente en la zona pélvica y lumbar, que suelen montar en una posición aerodinámica más agresiva. Una vez montados en la bici, adoptan una postura con una forma parecida a la V, de ahí su nombre. Estos ciclistas se sientan sobre la parte delantera del sillín, apoyados sobre las ramas púbicas. En términos generales, la postura de conducción es más baja y requiere un sillín con una forma ligeramente diferente. El modelo 1.5 incluye nuestros rieles huecos de titanio para ofrecer comodidad con un peso ligero.</p>
-                                            <h5>Características Principales</h5>
-                                            <ul>
-                                                <li>Talle único: 245 x 140 mm</li>
-                                                <li>Peso: 220 gramos</li>
-                                                <li>Ideal para ciclistas que buscan una posición más agresiva en la bicicleta</li>
-                                                <li> Carcasa reforzada con fibra de carbono, el equilibrio perfecto entre resistencia y poco peso</li>
-                                                <li>Rieles resistentes en titanio hueco</li>
-                                                <li>Espuma ligera de PU, confort durante todo el día</li>
-                                                <li>El diseño de la hendidura de alivio de la presión quita peso a los tejidos más sensibles</li>
-                                                <li>Funda de microtejido impermeable</li>
-                                            </ul>
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>    
-                        </div> 
-                    </div>
-                </div>
-                <div id="accesorios-4" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <img class="w-100" src="images/accesorios/asientos/belcarra-rr-2.0-channel.jpg" alt="Belcarra RR 2.0 Channel">  
-                                    </div>
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <h3 class="text-center">Syncros Belcarra RR 2.0 Channel</h3>
-                                        <div class="description">
-                                            <h5>Características Principales</h5>
-                                            <ul>
-                                                <li>Ideal para Riders que buscan peformance</li>
-                                                <li>Doble densidad Glassfiber-reinforced nylon shell</li>
-                                                <li>Rieles de CrMo</li>
-                                                <li>PU foam para mayor comodidad en largos entrenamientos</li>
-                                                <li>Canal de absorción de presión diseñado para redireccionar el peso del ciclista</li>
-                                                <li>Recubierto en material de microfibra</li>
-                                            </ul>
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>    
-                        </div> 
-                    </div>
-                </div>
-                <div id="accesorios-5" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <img class="w-100" src="images/accesorios/asientos/belcarra-2.0-cutout.jpg" alt="Belcarra 2.0 Cut Out">  
-                                    </div>
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <h3 class="text-center">Syncros Belcarra V 2.0 Cut Out</h3>
-                                        <div class="description">
-                                            <p>Nuestro sillín diseñado para ofrecer lo máximo en prestaciones, el Belcarra V 1.5, forma parte de nuestro programa V-Concept, desarrollado para los ciclistas más flexibles, especialmente en la zona pélvica y lumbar, que suelen montar en una posición aerodinámica más agresiva. Una vez montados en la bici, adoptan una postura con una forma parecida a la V, de ahí su nombre. Estos ciclistas se sientan sobre la parte delantera del sillín, apoyados sobre las ramas púbicas. En términos generales, la postura de conducción es más baja y requiere un sillín con una forma ligeramente diferente.</p>
-                                            <h5>Características Principales</h5>
-                                            <ul>
-                                                <li>Carcasa reforzada con fibra de carbono, el equilibrio perfecto entre resistencia y poco peso</li>
-                                                <li>Rieles resistentes  de Cromo</li>
-                                                <li>Espuma ligera de PU, confort durante todo el día</li>
-                                                <li>El diseño de la hendidura de alivio de la presión quita peso a los tejidos más sensibles</li>
-                                                <li>Funda de microtejido impermeable</li>
-                                                <li>Peso: 230 grs</li>
-                                            </ul>
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>    
-                        </div> 
-                    </div>
-                </div>
-                <div id="accesorios-6" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <img class="w-100" src="images/accesorios/asientos/rr-2.0.jpg" alt="RR 2.0">  
-                                    </div>
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <h3 class="text-center">Syncros RR 2.0</h3>
-                                        <div class="description">
-                                            <p>El asiento SYNCROS RR2.0 proporciona un gran confort y prestaciones a un precio muy atractivo. La carcasa con inyección de fibra de vidrio y los raíles de cromo minimizan el peso, mientras que la cubierta de vinilo asegura la durabilidad de este sillín. Está disponible en dos anchos diferentes, así que tienes asegurado tu ajuste favorito.</p>
-                                            <h5>Características Principales</h5>
-                                            <ul>
-                                                <li>RANGE OF USE: MTB de alto rendimiento</li>
-                                                <li>BASE: Nailon reforzado con fibra de vidrio</li>
-                                                <li>RAILS: CrMo hueco 7 x 7 mm</li>
-                                                <li>FOAM: TPU</li>
-                                            </ul>
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>    
-                        </div> 
-                    </div>
-                </div>
-                <div id="accesorios-7" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <img class="w-100" src="images/accesorios/asientos/rr-1.5-white.jpg" alt="RR 1.5 Titanio Blanco">  
-                                    </div>
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <h3 class="text-center">Syncros RR 1.5 Titanio Blanco</h3>
-                                        <div class="description">
-                                            <h5>Características Principales</h5>
-                                            <ul>
-                                                <li>Base: Carbon-reinforced nylon</li>
-                                                <li>Rieles 7x7mm CrN/Ti Alloy</li>
-                                                <li>Foam : Super-light EVA</li>
-                                                <li>Cobertura : Microfabric</li>
-                                                <li>Dimension : 282x140mm</li>
-                                                <li>Peso 230 grs</li>
-                                            </ul>
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>    
-                        </div> 
-                    </div>
-                </div>
-                <div id="accesorios-8" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <img class="w-100" src="images/accesorios/caramagnolas/elite.jpg" alt="Elite Fly Scott-Mitchelton">  
-                                    </div>
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <h3 class="text-center">Elite Fly Scott-Mitchelton</h3>
-                                        <div class="description">
-                                            <p>Es la caramañola más ligera de 550 ml disponible en todo el mundo. Su récord de 54 gramos de peso se logra a través de su espesor variable. Más grueso en la base y más delgado en el cuerpo central, esto no solo hace posible utilizar menos material plástico, sino que también asegura un agarre firme al montar en bicicleta y una estructura ergonómica fácil de apretar para que el flujo de líquido sea abundante con la presión más ligera.
-                                                Está disponible en muchas opciones de colores diferentes para una combinación perfecta con el cuadro de su bicicleta y su portacaramañola.</p>
-                                            <h5>Características Principales</h5>
-                                            <ul>
-                                                <li>Modelo: Fly</li>
-                                                <li>Capacidad: 550ml</li>
-                                                <li>Material: Plástico (BPA Free)</li>
-                                                <li>Es la caramañola de 550ml mas liviana del mundo</li>
-                                                <li>Flujo de liquido extremo: La tapa ergonómica con boquilla de “Push-Pull” más ancha y la boca más ancha de FLY asegura un alto flujo de líquido, que también está garantizado por el cuerpo suave de la botella: simplemente apriete ligeramente la botella para iniciar el flujo de líquido. Este es un factor clave para obtener una hidratación simple y efectiva.</li>
-                                                <li>Material innovador: Esta botella se fabrica con materiales plásticos innovadores, inodoros, suaves y resistentes, que es el resultado de un estudio de 3 años realizado en varios centros de investigación de universidades.</li>
-                                                <li>Es inocuo para los alimentos de acuerdo con las disposiciones de la CE y la FDA.</li>
-                                                <li>Sin BPA.</li>
-                                                <li>100% reciclable.</li>
-                                                <li>Diseño compacto. Nuevo y exclusivo diseño de carreras, desarrollado para una gran estabilidad en el embotellamiento y una fácil extracción durante el ciclismo.</li>
-                                                <li>La forma compacta hace que sea fácil de usar con cuadros más pequeños.</li>
-                                                <li>El diámetro estándar hace que sea compatible con la mayoría de las portacaramañolas en el mercado.</li>
-                                                <li> Dimensiones: 180mm (Alto) x 74mm (Ancho)</li>
-                                                <li> Peso: 54g</li>
-                                            </ul>
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>    
-                        </div> 
-                    </div>
-                </div>
-                <div id="accesorios-9" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <img class="w-100" src="images/accesorios/caramagnolas/camelbak-chillrace-650ml.jpg" alt="Camelbak Chill Race 650ml">  
-                                    </div>
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <h3 class="text-center">Camelback Chill Race 650ml</h3>
-                                        <div class="description">
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>    
-                        </div> 
-                    </div>
-                </div>
-                <div id="accesorios-10" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <img class="w-100" src="images/accesorios/caramagnolas/camelbak-chillrace-720ml.jpg" alt="Camelbak Chill Race 720ml">  
-                                    </div>
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <h3 class="text-center">Camelback Chill Race 720ml</h3>
-                                        <div class="description">
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>    
-                        </div> 
-                    </div>
-                </div>
-                <div id="accesorios-11" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <img class="w-100" src="images/accesorios/cuadros/scale-940.jpg" alt="Scale 940">  
-                                    </div>
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <h3 class="text-center">Cuadro Scott Scale 940 Carbono</h3>
-                                        <div class="description">
-                                            <h5>Características Principales</h5>
-                                            <ul>
-                                                <li>Cuadro Scale 3 Carbon / IMP technology / HMF
-                                                <li>BB92 / SW DM dropouts for Boost 12x148mm</li>
-                                                <li>SDS2 advanced Shock & Standing Damping System</li>
-                                                <li>ICCR Cable routing</li>
-                                            </ul>
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>    
-                        </div> 
-                    </div>
-                </div>
-                <div id="accesorios-12" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <img class="w-100" src="images/accesorios/cuadros/scale-610.jpg" alt="Scale 610">  
-                                    </div>
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <h3 class="text-center">Cuadro Scott Scale 610 Carbono</h3>
-                                        <div class="description">
-                                            <h5>Características Principales</h5>
-                                            <ul>
-                                                <li>Material: carbono</li>
-                                                <li>Rodado 26</li>
-                                                <li>Juego de direccion Tapered Ritchey Pro Headset for Tapered or 1-1/8″ Forks</li>
-                                                <li>Caja pedalera BB PF92 PressFit</li>
-                                                <li>Medida descarrilador 34.9mm</li>
-                                                <li>Medida portasilla 34.9mm</li>
-                                                <li>Color: Black/Grey/Red</li>
-                                                <li>Peso 1120 grs</li>
-                                                <li>Incluye cierre de asiento y caño portasilla</li>
-                                            </ul>
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>    
-                        </div> 
-                    </div>
-                </div>
-                <div id="accesorios-13" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <img class="w-100" src="images/accesorios/cubiertas/mitas-scylla.jpg" alt="Mitas Scylla">  
-                                    </div>
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <h3 class="text-center">Mitas Scylla TR 29x2.45</h3>
-                                        <div class="description">
-                                            <h5>Características Principales</h5>
-                                            <ul>
-                                                <li>Tubeless</li>
-                                                <li>Taco intermedio
-                                                <li>TEXTRA (banda adicional de kevlar en el borde)</li>
-                                                <li>KEVLAR</li>
-                                                <li>127 TPI</li>
-                                                <li>670 gramos</li>
-                                            </ul>
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>    
-                        </div> 
-                    </div>
-                </div>
-                <div id="accesorios-14" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <img class="w-100" src="images/accesorios/cubiertas/mitas-zefyros.jpg" alt="Mitas Zefyros">  
-                                    </div>
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <h3 class="text-center">Mitas Zefyros TDI 29x2.25</h3>
-                                        <div class="description">
-                                            <h5>Características Principales</h5>
-                                            <ul>
-                                                <li>Rodado 29</li>
-                                                <li>Ancho 2.25</li>
-                                                <li>ETRTO: 57-584</li>
-                                                <li>127 TPI</li>
-                                                <li>55 PSI</li>
-                                                <li>Carga Max: 136 Kg</li>
-                                                <li>Excelente Grip y Conducción Segura</li>
-                                                <li>Aro de Kevlar flexible reforzados con Tecnología TSS + TEXTRA</li>
-                                                <li>Construcción Tubeless Supra</li>
-                                                <li>Compuesto: Carbon Race Extreme Compound Light (CRX)</li>
-                                                <li>Tejido con hilos de polímero de alta densidad</li>
-                                                <li>Para Terrenos Livianos y Duros</li>
-                                                <li>Categoría: MTB/ XC/ XMC</li>
-                                                <li>Muy Livianas</li>
-                                                <li>Peso: 660 gr</li>
-                                                <li>Hecho en República Checa</li>
-                                            </ul>
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>    
-                        </div> 
-                    </div>
-                </div>
-                <div id="accesorios-15" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <img class="w-100" src="images/accesorios/cubiertas/mitas-cobra.jpg" alt="Mitas Cobra">  
-                                    </div>
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <h3 class="text-center">Mitas Cobra 26x1.9 Negra</h3>
-                                        <div class="description">
-                                            <h5>Características Principales</h5>
-                                            <ul>
-                                                <li>Cubierta Mitas COBRA</li>
-                                                <li>26 X 1.90</li>
-                                                <li>Peso 760 g</li>
-                                                <li>Carga Maxima PSI 64</li>            
-                                            </ul>
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>    
-                        </div> 
-                    </div>
-                </div>
-                <div id="accesorios-16" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <img class="w-100" src="images/accesorios/infladores/syncros-vernon.jpg" alt="Syncros Vernon">  
-                                    </div>
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <h3 class="text-center">Inflador de Pie Syncros Vernon</h3>
-                                        <div class="description">
-                                            <p>La Vernon 2.0 HV es una bomba específica para bicicletas de montaña que está diseñada con un barril de gran volumen extra para entregar más aire con menos golpes. Una construcción de acero y compuesto produce un producto ligero pero duradero que siempre te llenará y nunca te fallará.</p>
-                                            <h5>Características Principales</h5>
-                                            <ul>
-                                                <li>Barril de alto volumen optimizado para bicicletas de montaña</li>
-                                                <li>Mango ergonómico compuesto con soporte de cabeza integrado</li>
-                                                <li>Calibre de montaje superior de 2,5 «con botón de purga de aire</li>
-                                                <li>Base de acero ancha y estable</li>
-                                                <li>Tipo de valvula Presta / Schrader reversible, con palanca de cierre</li>
-                                                <li>Presión máxima 40PSI / 2.8 bar</li>            
-                                            </ul>
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>    
-                        </div> 
-                    </div>
-                </div>
-                <div id="accesorios-17" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <img class="w-100" src="images/accesorios/infladores/boundary.jpg" alt="Syncros Boundary">  
-                                    </div>
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <h3 class="text-center">Inflador Syncros Mini Pump</h3>
-                                        <div class="description">
-                                            <h5>Características Principales</h5>
-                                            <ul>
-                                                <li>MATERIAL Alloy barrel and composite handle</li>
-                                                <li>VALVE TYPE Extractable Presta with sealing lever</li>
-                                                <li>MAXIMUM PRESSURE 120PSI / 8.3 bar</li>
-                                                <li>WEIGHT 81g approx.</li>
-                                                <li>SIZE One size</li>
-                                                <li>FEATURES High Pressure construction optimized for road bikes</li>
-                                                <li>Innovative sealing lever doubles as protective head cover protecting against water and dirt</li>
-                                                <li>Extractable head reduces the risk of damaging valve stem during inflation</li>
-                                                <li>DIMENSIONS 200mm</li>
-                                                <li>AIR VOLUME PER STROKE 26.5cc     </li>       
-                                            </ul>
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>    
-                        </div> 
-                    </div>
-                </div>
-                <div id="accesorios-18" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <img class="w-100" src="images/accesorios/manubrios/fraser-17-grados.jpg" alt="Fraser 17º Grados">  
-                                    </div>
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <h3 class="text-center">Syncros Fraser 740mm -17º</h3>
-                                        <div class="description">
-                                            <p>El manubrio integrado más ganador de la historia,  Utilizado por Andri Frischknecht del SCOTT – SRAM TEAM. El stem tiene -17 grados de rise y está construido en carbono de una sola pieza. Esta es una edición limitada del Fraser iC SL.</p>
-                                            <h5>Características Principales</h5>
-                                            <ul>
-                                                <li>MATERIAL Carbon UD, Superlight Layup</li>
-                                                <li>UP SWEEP 6° up</li>
-                                                <li>BACK SWEEP 9° back</li>
-                                                <li>RISE Flat T-Bar</li>
-                                                <li>ANGLE -17°</li>
-                                                <li>CLAMP DIAMETERiC (integrated Cockpit)</li>
-                                                <li>STEERER DIAMETER 1 1/8″</li>            
-                                            </ul>
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>    
-                        </div> 
-                    </div>
-                </div>
-                <div id="accesorios-19" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <img class="w-100" src="images/accesorios/manubrios/fraser-25-grados.jpg" alt="Fraser 25º Grados">  
-                                    </div>
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <h3 class="text-center">Syncros Fraser 740mm -25º</h3>
-                                        <div class="description">
-                                            <p>El manubrio integrado más ganador de la historia, bajo el control de Nino Schurter nuestro Fraser iC Special Edition está diseñado de acuerdo a su geometría preferida. El stem tiene 25 grados de rise y está construido en carbono de una sola pieza. Esta es una edición limitada del Fraser iC SL.</p>
-                                            <h5>Características Principales</h5>
-                                            <ul>
-                                                <li>MATERIAL Carbon UD, Superlight Layup</li>
-                                                <li>UP SWEEP 6° up</li>
-                                                <li>BACK SWEEP 9° back</li>
-                                                <li>RISE Flat T-Bar</li>
-                                                <li>ANGLE-25°</li>
-                                                <li>CLAMP DIAMETER iC (integrated Cockpit)</li>
-                                                <li>STEERER DIAMETER 1 1/8″</li>
-                                                <li>WEIGHT 220g (90mm virtual extension, -25 degree)</li>
-                                                <li>FEATURES XC World Cup level integrated carbon bar & stem</li>
-                                                <li>One piece construction</li>
-                                                <li>Textured grip/lever area</li>
-                                                <li>Integrated stem -25°</li>
-                                                <li>Flat T-Bar shape</li>
-                                                <li>Width: 740mm</li>
-                                                <li>Syncros Engineered Carbon Construction</li>          
-                                            </ul>
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>    
-                        </div> 
-                    </div>
-                </div>
-                <div id="accesorios-20" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <img class="w-100" src="images/accesorios/manubrios/fraser.jpg" alt="Fraser Integrado">  
-                                    </div>
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <h3 class="text-center">Syncros Fraser 720mm</h3>
-                                        <div class="description">
-                                            <p>Nuestro conjunto de manillar y potencia de cross country en una sola pieza ofrece un peso bajísimo para los riders de XC que saben lo que se traen entre manos. Hemos utilizado como punto de partida nuestro popular manillar plano y una potencia de -8° en 3 posibles opciones de extensión virtual; nuestros ingenieros especializados en carbono han conseguido un ahorro considerable de peso con las mismas prestaciones. Este es el conjunto de manillar que monta Kate Courtney en el circuito del Mundial.</p>
-                                            <h5>Características Principales</h5>
-                                            <ul>
-                                                <li>Superligero – 220 g para extensión de 740 mm</li>
-                                                <li>Manillar y potencia en una sola pieza</li>
-                                                <li>740 mm de ancho</li>
-                                                <li>El que monta Kate Courtney</li>         
-                                            </ul>
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>    
-                        </div> 
-                    </div>
-                </div>
-                <div id="accesorios-21" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <img class="w-100" src="images/accesorios/manubrios/fl-1.0-carbon.jpg" alt="Fl 1.0 Carbon">  
-                                    </div>
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <h3 class="text-center">Syncros FL 1.0 Carbon 740mm</h3>
-                                        <div class="d-flex justify-content-center">
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>    
-                        </div> 
-                    </div>
-                </div>
-                <div id="accesorios-22" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <img class="w-100" src="images/accesorios/punos/pro.jpg" alt="Pro">  
-                                    </div>
-                                    <div class="col-12 col-lg-6 p-4">
-                                        <h3 class="text-center">Syncros Pro Black</h3>
-                                        <div class="description">
-                                            <h5>Características Principales</h5>
-                                            <ul>
-                                                <li>Material de agarre excepcional: poliuretano elastomérico muy duradero</li>
-                                                <li>La textura de la superficie es antideslizante</li>
-                                                <li>30mm de diámetro</li>
-                                                <li>Material: Goma</li>  
-                                                <li>Peso: 80 g el par</li>       
-                                            </ul>
-                                            <div class="d-flex justify-content-center">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>    
-                        </div> 
-                    </div>
-                </div>
+                
             </section>
         </main>
+
+
         <!-- Footer -->
         <footer id="footer">
             <div class="footer-top">
@@ -974,7 +596,7 @@
                                 </div>
                             </div>     
                             <div class="row">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.834179747058!2d-58.869868462966124!3d-34.608354360610406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc910f31a6e62f%3A0x960e21c33c44093a!2sBicicleter%C3%ADa%20Scott%20Concept%20Store!5e0!3m2!1ses-419!2sar!4v1602542701733!5m2!1ses-419!2sar" width="100%" height="100px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3287.7865222318965!2d-58.48160188515225!3d-34.50829595996161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb143cd1147ef%3A0xd0d770240c062f9!2sAvenida%20del%20Libertador%20%26%20Corrientes%2C%20Olivos%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1sen!2sar!4v1622910648718!5m2!1sen!2sar" width="100%" height="100px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                             </div>
                         </div>
         
@@ -1024,7 +646,7 @@
           </footer>
         <!--Fixed Whatsapp-->
         <div id="whatsapp-button" class="d-flex flex-wrap justify-content-center align-content-center">
-            <a href="https://wa.me/5491130139573" target="_blank">
+            <a href="https://wa.me/5491164871572" target="_blank">
             <i class="fab fa-lg fa-whatsapp"></i>
 		</div>
     <!-- Vendor JS Files -->

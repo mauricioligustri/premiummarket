@@ -7,12 +7,12 @@ $bg-color-scrollbar-thumb: green;
 
 /** Header **/
 $bg-color-navbar: transparent;
-$bg-color-navbar-black: transparent;
+$bg-color-navbar-black: #000000;
 $bg-color-navbar-menuiconbar:#ffffff;
-$bg-color-navbar-fixedtop: transparent;
-$bg-color-navbarnav-767:#ffffff;
-$bg-color-navbarnav-fixedtop-767:#ffffff;
-$bg-color-navbarnav-navlink-after:GREEN; 
+$bg-color-navbar-fixedtop: #000000;
+$bg-color-navbarnav-767:#000000e6;
+$bg-color-navbarnav-fixedtop-767:#000000;
+$bg-color-navbarnav-navlink-after:green; 
 
 /** Info Bar **/
 $bg-color-infobar: linear-gradient(to right, black, rgb(101, 243, 101));
@@ -38,8 +38,8 @@ $bg-color-whatsappbutton: #25d366;
 /** FONT COLOURS**/
 
 /** Header **/
-$font-color-navbardark-navlink:black;
-$font-color-navbardark-navlink-hover: green;
+$font-color-navbardark-navlink:#ffffff;
+$font-color-navbardark-navlink-hover: #ffffff;
 $font-color-navbardark-navlink-active:green;
 $font-color-fixedtop-navbardark-navlink-active:green;
 $font-color-fixedtop-navbardark-navlink-after:green;
